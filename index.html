@@ -3,271 +3,327 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f7f4ed" />
-  <title>健康小人全身扫描｜常规体检之外，看看身体细节值得被关注</title>
-  <meta name="description" content="一张可互动的卡通小人地图，帮助用户系统了解常规体检之外、容易被忽略但影响生活质量和长期健康的关注点。" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>全身健康关注地图 · Full-Body Health Awareness Map</title>
+  <meta name="description" content="一张可互动的身体地图，帮助你系统了解常规体检之外容易被忽略的健康关注点。科普工具，非医疗诊断。" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-  <div class="page-shell">
-    <header class="topbar">
-      <div class="brand">
-        <span class="brand-badge">🩺</span>
-        <span>健康小人全身扫描</span>
-      </div>
-      <nav class="nav">
-        <a href="#map-demo">互动示意</a>
-        <a href="#scenes">使用场景</a>
-        <a href="#tech">技术方案</a>
+
+  <!-- Three.js background canvas -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- ─── Header ─────────────────────────────── -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a class="logo" href="#">
+        <div class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="12" cy="6" r="4.5" fill="currentColor"/>
+            <path d="M5.5 10.5h13l2 11H3.5l2-11z" fill="currentColor" opacity=".8"/>
+            <path d="M8 21.5l-1.5 2M16 21.5l1.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span>健康小人</span>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="#scanner">全身扫描</a>
+        <a href="#grades">分级指南</a>
       </nav>
-    </header>
+      <a class="header-btn" href="#scanner">开始体验</a>
+    </div>
+  </header>
 
-    <main>
-      <section class="hero">
-        <div class="hero-copy">
-          <div class="eyebrow">Full-Body Health Awareness Map</div>
-          <h1>常规体检之外，<br/>看看身体细节值得被关注</h1>
-          <p class="hero-subtitle">
-            一张可互动的卡通小人地图，帮你用更轻松、可视化、可保存的方式，
-            系统了解那些容易被忽略、却会影响生活质量和长期健康的身体关注点。
-          </p>
-          <div class="hero-cta-row">
-            <a class="primary-btn" href="#map-demo">立即体验全身关注扫描</a>
-            <a class="secondary-btn" href="#tech">查看技术亮点</a>
-          </div>
-          <ul class="hero-points">
-            <li>✅ 科普工具，不是医疗诊断</li>
-            <li>✅ 症状 / 风险驱动，不鼓励盲做</li>
-            <li>✅ 移动端优先，适合自己看也适合发给家人</li>
-          </ul>
+  <main>
+
+    <!-- ─── Hero ───────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="hero-eyebrow">Full-Body Health Awareness Map</div>
+        <h1 class="hero-h1">
+          全身<br/>健康关注<br/>地图
+        </h1>
+        <p class="hero-desc">
+          常规体检之外，看看身体真正需要关注的细节。
+          点击任意部位，获取科普信息与行动建议，不构成医疗诊断。
+        </p>
+        <div class="hero-actions">
+          <a href="#scanner" class="btn-primary">开始全身扫描</a>
+          <a href="#grades" class="btn-ghost">了解三色分级 →</a>
         </div>
-        <div class="hero-visual-card">
-          <div class="floating-tag tag-left">干眼 · 足弓 · 睡眠</div>
-          <div class="floating-tag tag-right">离职前体检加项建议</div>
-          <div class="hero-figure-wrap">
-            <div class="hero-glow"></div>
-            <div class="scan-line" aria-hidden="true"></div>
-            <div class="scan-pill">30 秒生成关注清单</div>
-            <svg class="hero-figure" viewBox="0 0 320 520" aria-label="卡通健康小人示意图" role="img">
-              <circle cx="160" cy="82" r="54" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
-              <path d="M112 74c6-28 30-46 48-46s42 18 48 46" fill="#ff9fb3" stroke="#1c1c1c" stroke-width="4" stroke-linecap="round"/>
-              <circle cx="140" cy="86" r="6" fill="#1c1c1c"/>
-              <circle cx="180" cy="86" r="6" fill="#1c1c1c"/>
-              <path d="M142 109c11 12 25 12 36 0" stroke="#1c1c1c" stroke-width="4" fill="none" stroke-linecap="round"/>
-              <rect x="116" y="142" width="88" height="130" rx="36" fill="#fff7a8" stroke="#1c1c1c" stroke-width="4"/>
-              <rect x="88" y="162" width="34" height="116" rx="17" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
-              <rect x="198" y="162" width="34" height="116" rx="17" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
-              <rect x="126" y="268" width="28" height="130" rx="14" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
-              <rect x="166" y="268" width="28" height="130" rx="14" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
-              <ellipse cx="141" cy="414" rx="30" ry="14" fill="#8fe0ff" stroke="#1c1c1c" stroke-width="4"/>
-              <ellipse cx="181" cy="414" rx="30" ry="14" fill="#8fe0ff" stroke="#1c1c1c" stroke-width="4"/>
-              <circle cx="160" cy="178" r="15" fill="#ffb45e" stroke="#1c1c1c" stroke-width="4"/>
-              <circle cx="160" cy="230" r="15" fill="#9be58f" stroke="#1c1c1c" stroke-width="4"/>
-              <circle cx="95" cy="222" r="14" fill="#ffb7d5" stroke="#1c1c1c" stroke-width="4"/>
-              <circle cx="225" cy="222" r="14" fill="#ffb7d5" stroke="#1c1c1c" stroke-width="4"/>
-              <circle cx="140" cy="344" r="14" fill="#b8b0ff" stroke="#1c1c1c" stroke-width="4"/>
-              <circle cx="180" cy="344" r="14" fill="#b8b0ff" stroke="#1c1c1c" stroke-width="4"/>
-              <circle cx="141" cy="415" r="11" fill="#84e7a5" stroke="#1c1c1c" stroke-width="4"/>
-              <circle cx="181" cy="415" r="11" fill="#84e7a5" stroke="#1c1c1c" stroke-width="4"/>
-            </svg>
-          </div>
-          <div class="mini-card-row">
-            <div class="mini-card">
-              <strong>部位卡片</strong>
-              <span>一句话重点 + 三色等级</span>
+        <div class="hero-tags">
+          <span class="htag green">🟢 科普工具</span>
+          <span class="htag blue">非医疗诊断</span>
+          <span class="htag gray">13 个关注部位</span>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <!-- Floating info chips -->
+        <div class="chip chip-a" aria-hidden="true">🦷 牙周暗病</div>
+        <div class="chip chip-b" aria-hidden="true">👁 干眼困扰</div>
+        <div class="chip chip-c" aria-hidden="true">🦶 足弓塌陷</div>
+        <div class="chip chip-d" aria-hidden="true">😴 睡眠质量</div>
+        <div class="chip chip-e" aria-hidden="true">🤧 过敏原</div>
+
+        <div class="hero-body-wrap">
+          <!-- Mini scan line for hero decoration -->
+          <div class="hero-scan" aria-hidden="true"></div>
+          <svg class="hero-body" viewBox="0 0 180 380" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="健康小人示意图" role="img">
+            <circle cx="90" cy="48" r="36" fill="#FFE4D6" stroke="#1D1D1F" stroke-width="2"/>
+            <path d="M54 38Q56 10 90 8Q124 10 126 38Q112 18 90 18Q68 18 54 38Z" fill="#4A3728"/>
+            <ellipse cx="77" cy="44" rx="7" ry="5.5" fill="white" stroke="#1D1D1F" stroke-width="1.2"/>
+            <ellipse cx="103" cy="44" rx="7" ry="5.5" fill="white" stroke="#1D1D1F" stroke-width="1.2"/>
+            <circle cx="77" cy="44.5" r="3" fill="#2C1810"/>
+            <circle cx="103" cy="44.5" r="3" fill="#2C1810"/>
+            <circle cx="78.5" cy="43" r="1.2" fill="white"/>
+            <circle cx="104.5" cy="43" r="1.2" fill="white"/>
+            <path d="M90 52Q86 59 84 62Q90 64 96 62Q94 59 90 52Z" fill="#FFD0BB"/>
+            <path d="M81 72Q90 80 99 72" stroke="#1D1D1F" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <ellipse cx="53" cy="50" rx="7" ry="11" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.2"/>
+            <ellipse cx="127" cy="50" rx="7" ry="11" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.2"/>
+            <rect x="80" y="82" width="20" height="18" rx="5" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.5"/>
+            <path d="M40 104Q57 96 80 96L100 96Q123 96 140 104L145 120L145 220Q145 232 132 232L48 232Q35 232 35 220L35 120Z" fill="#D0E8FF" stroke="#1D1D1F" stroke-width="2"/>
+            <path d="M40 110Q28 116 22 138L14 193Q12 208 22 211Q32 214 36 196L44 148L40 124Z" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.5"/>
+            <path d="M140 110Q152 116 158 138L166 193Q168 208 158 211Q148 214 144 196L136 148L140 124Z" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.5"/>
+            <ellipse cx="17" cy="217" rx="11" ry="8" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.2"/>
+            <ellipse cx="163" cy="217" rx="11" ry="8" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.2"/>
+            <path d="M48 230Q35 230 35 230L35 256Q35 270 48 271L132 271Q145 270 145 256L145 230Q132 230 48 230Z" fill="#A8C4E8" stroke="#1D1D1F" stroke-width="1.8"/>
+            <path d="M48 268L42 352Q40 364 52 365L72 365Q82 364 80 352L76 268Z" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.5"/>
+            <path d="M132 268L138 352Q140 364 128 365L108 365Q98 364 100 352L104 268Z" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.5"/>
+            <ellipse cx="61" cy="372" rx="22" ry="9" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.5"/>
+            <ellipse cx="119" cy="372" rx="22" ry="9" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.5"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Scanner ─────────────────────────────── -->
+    <section id="scanner" class="scanner-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-eyebrow">互动全身扫描</span>
+          <h2>点击身体任意部位，查看健康关注点</h2>
+          <p class="section-sub">所有内容为健康科普信息，不构成医疗诊断或治疗建议</p>
+        </div>
+
+        <!-- System-level tags (non-anatomical parts) -->
+        <div class="sys-tags" role="group" aria-label="系统性关注部位">
+          <button class="sys-tag" data-part="allergy">🌿 <span>过敏源</span></button>
+          <button class="sys-tag" data-part="sleep">😴 <span>睡眠/压力</span></button>
+          <button class="sys-tag" data-part="nutrition">💊 <span>微量元素</span></button>
+        </div>
+
+        <div class="scanner-layout">
+
+          <!-- Body map -->
+          <div class="map-wrap">
+            <div class="map-stage" id="mapStage">
+              <div class="scan-beam" id="scanBeam" aria-hidden="true"></div>
+              <div class="body-aura" aria-hidden="true"></div>
+
+              <svg class="body-svg" viewBox="0 0 260 580" xmlns="http://www.w3.org/2000/svg" aria-label="人体健康关注地图，点击各部位查看信息" role="img">
+                <!-- Head -->
+                <circle cx="130" cy="68" r="50" fill="#FFE4D6" stroke="#1D1D1F" stroke-width="2.5"/>
+                <!-- Hair -->
+                <path d="M80 54Q82 18 130 16Q178 18 180 54Q162 26 130 26Q98 26 80 54Z" fill="#4A3728"/>
+                <!-- Eyes -->
+                <ellipse cx="113" cy="62" rx="9" ry="7" fill="white" stroke="#1D1D1F" stroke-width="1.5"/>
+                <ellipse cx="147" cy="62" rx="9" ry="7" fill="white" stroke="#1D1D1F" stroke-width="1.5"/>
+                <circle cx="113" cy="63" r="4" fill="#2C1810"/>
+                <circle cx="147" cy="63" r="4" fill="#2C1810"/>
+                <circle cx="115" cy="61" r="1.5" fill="white"/>
+                <circle cx="149" cy="61" r="1.5" fill="white"/>
+                <!-- Nose -->
+                <path d="M130 72Q125 81 122 85Q130 88 138 85Q135 81 130 72Z" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1"/>
+                <!-- Mouth -->
+                <path d="M117 95Q130 106 143 95" stroke="#1D1D1F" stroke-width="2" stroke-linecap="round" fill="none"/>
+                <!-- Ears -->
+                <ellipse cx="79" cy="70" rx="9" ry="14" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.5"/>
+                <ellipse cx="181" cy="70" rx="9" ry="14" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.5"/>
+                <!-- Neck -->
+                <rect x="115" y="115" width="30" height="25" rx="8" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="2"/>
+                <!-- Thyroid indicator -->
+                <ellipse cx="130" cy="128" rx="15" ry="6" fill="rgba(255,165,50,.12)" stroke="rgba(255,165,50,.4)" stroke-width="1.2" stroke-dasharray="3,2"/>
+                <!-- Torso (shirt) -->
+                <path d="M62 142Q85 132 115 132L145 132Q175 132 198 142L206 168L206 300Q206 316 188 316L72 316Q54 316 54 300L54 168Z" fill="#D0E8FF" stroke="#1D1D1F" stroke-width="2.5"/>
+                <!-- Collar -->
+                <path d="M115 132Q130 146 145 132" stroke="#1D1D1F" stroke-width="1.5" fill="none"/>
+                <!-- Shirt pocket -->
+                <rect x="68" y="175" width="26" height="20" rx="4" fill="rgba(255,255,255,.35)" stroke="#1D1D1F" stroke-width="1" opacity=".7"/>
+                <!-- Spine guide line -->
+                <line x1="130" y1="140" x2="130" y2="316" stroke="rgba(80,130,255,.2)" stroke-width="3" stroke-dasharray="5,4"/>
+                <!-- Gut zone -->
+                <ellipse cx="130" cy="250" rx="32" ry="25" fill="rgba(255,90,90,.06)" stroke="rgba(255,90,90,.22)" stroke-width="1.2" stroke-dasharray="4,3"/>
+                <!-- Arms -->
+                <path d="M62 148Q44 155 36 182L26 264Q23 282 33 286Q43 290 48 268L58 200L62 165Z" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="2"/>
+                <path d="M198 148Q216 155 224 182L234 264Q237 282 227 286Q217 290 212 268L202 200L198 165Z" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="2"/>
+                <!-- Hands -->
+                <ellipse cx="29" cy="292" rx="14" ry="10" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.5"/>
+                <ellipse cx="231" cy="292" rx="14" ry="10" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.5"/>
+                <!-- Hips/Pants -->
+                <path d="M72 314Q54 314 54 314L54 352Q54 370 72 372L188 372Q206 370 206 352L206 314Q188 314 72 314Z" fill="#A8C4E8" stroke="#1D1D1F" stroke-width="2"/>
+                <!-- Legs -->
+                <path d="M72 368L62 494Q60 514 76 516L106 516Q120 514 118 494L110 368Z" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="2"/>
+                <path d="M188 368L198 494Q200 514 184 516L154 516Q140 514 142 494L150 368Z" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="2"/>
+                <!-- Kneecaps -->
+                <circle cx="88" cy="432" r="15" fill="#FFCDB8" stroke="#1D1D1F" stroke-width="1.5"/>
+                <circle cx="172" cy="432" r="15" fill="#FFCDB8" stroke="#1D1D1F" stroke-width="1.5"/>
+                <!-- Feet -->
+                <ellipse cx="87" cy="524" rx="29" ry="12" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.8"/>
+                <ellipse cx="173" cy="524" rx="29" ry="12" fill="#FFD0BB" stroke="#1D1D1F" stroke-width="1.8"/>
+                <!-- Shoes -->
+                <path d="M60 527Q67 538 116 536L116 520Q95 518 60 527Z" fill="#7A5C4E" stroke="#1D1D1F" stroke-width="1.2"/>
+                <path d="M200 527Q193 538 144 536L144 520Q165 518 200 527Z" fill="#7A5C4E" stroke="#1D1D1F" stroke-width="1.2"/>
+              </svg>
+
+              <!-- Hotspots (centered via transform: translate(-50%,-50%)) -->
+              <!-- Scalp: SVG (130,20) → 50%, 3.4% -->
+              <button class="hs" data-part="scalp" style="top:3.4%;left:50%" aria-label="头皮与头发">
+                <span class="hs-ring" aria-hidden="true"></span>
+                <span class="hs-core" aria-hidden="true"></span>
+                <span class="hs-tip">头皮</span>
+              </button>
+              <!-- Eyes: SVG (113,62) → 43.5%, 10.7% -->
+              <button class="hs" data-part="eyes" style="top:10.7%;left:43.5%" aria-label="眼睛健康">
+                <span class="hs-ring" aria-hidden="true"></span>
+                <span class="hs-core" aria-hidden="true"></span>
+                <span class="hs-tip">眼睛</span>
+              </button>
+              <!-- Nose: SVG (130,82) → 50%, 14.1% -->
+              <button class="hs" data-part="nose" style="top:14.1%;left:50%" aria-label="鼻腔健康">
+                <span class="hs-ring" aria-hidden="true"></span>
+                <span class="hs-core" aria-hidden="true"></span>
+                <span class="hs-tip">鼻腔</span>
+              </button>
+              <!-- Oral: SVG (130,100) → 50%, 17.2% -->
+              <button class="hs" data-part="oral" style="top:17.2%;left:50%" aria-label="口腔健康">
+                <span class="hs-ring" aria-hidden="true"></span>
+                <span class="hs-core" aria-hidden="true"></span>
+                <span class="hs-tip">口腔</span>
+              </button>
+              <!-- Neck/Cervical: SVG (165,132) → 63.5%, 22.8% -->
+              <button class="hs" data-part="neck" style="top:22.8%;left:63.5%" aria-label="颈椎健康">
+                <span class="hs-ring" aria-hidden="true"></span>
+                <span class="hs-core" aria-hidden="true"></span>
+                <span class="hs-tip">颈椎</span>
+              </button>
+              <!-- Thyroid: SVG (155,145) → 59.6%, 25% -->
+              <button class="hs" data-part="thyroid" style="top:25%;left:59.6%" aria-label="甲状腺">
+                <span class="hs-ring" aria-hidden="true"></span>
+                <span class="hs-core" aria-hidden="true"></span>
+                <span class="hs-tip">甲状腺</span>
+              </button>
+              <!-- Spine: SVG (100,222) → 38.5%, 38.3% -->
+              <button class="hs" data-part="spine" style="top:38.3%;left:38.5%" aria-label="脊柱体态">
+                <span class="hs-ring" aria-hidden="true"></span>
+                <span class="hs-core" aria-hidden="true"></span>
+                <span class="hs-tip">脊柱</span>
+              </button>
+              <!-- Gut: SVG (170,255) → 65.4%, 44% -->
+              <button class="hs" data-part="gut" style="top:44%;left:65.4%" aria-label="胃肠健康">
+                <span class="hs-ring" aria-hidden="true"></span>
+                <span class="hs-core" aria-hidden="true"></span>
+                <span class="hs-tip">胃肠</span>
+              </button>
+              <!-- Knee: SVG (88,432) → 33.8%, 74.5% -->
+              <button class="hs" data-part="knee" style="top:74.5%;left:33.8%" aria-label="膝关节">
+                <span class="hs-ring" aria-hidden="true"></span>
+                <span class="hs-core" aria-hidden="true"></span>
+                <span class="hs-tip">膝盖</span>
+              </button>
+              <!-- Feet: SVG (87,524) → 33.5%, 90.3% -->
+              <button class="hs" data-part="feet" style="top:90.3%;left:33.5%" aria-label="足弓步态">
+                <span class="hs-ring" aria-hidden="true"></span>
+                <span class="hs-core" aria-hidden="true"></span>
+                <span class="hs-tip">足弓</span>
+              </button>
             </div>
-            <div class="mini-card">
-              <strong>关注清单</strong>
-              <span>问卷生成，可保存可分享</span>
-            </div>
           </div>
-        </div>
-      </section>
 
-      <section class="trust-strip">
-        <div>面向 C 端的健康科普工具</div>
-        <div>卡通小人地图 + 部位卡片 + 关注清单生成</div>
-        <div>不涉及诊断、处方、检查预约</div>
-      </section>
-
-      <section id="map-demo" class="section section-map">
-        <div class="section-head">
-          <div class="eyebrow">互动示意</div>
-          <h2>一眼看懂，全身哪里值得被关注</h2>
-          <p>点击小人的不同部位，查看「常规体检通常不会细查什么」「日常观察方法」「什么情况建议进一步检查」等信息。</p>
-        </div>
-        <div class="map-demo-grid">
-          <div class="map-card">
-            <svg class="interactive-figure" viewBox="0 0 320 520" aria-hidden="true">
-              <circle cx="160" cy="82" r="54" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
-              <path d="M112 74c6-28 30-46 48-46s42 18 48 46" fill="#ff9fb3" stroke="#1c1c1c" stroke-width="4" stroke-linecap="round"/>
-              <circle cx="140" cy="86" r="6" fill="#1c1c1c"/>
-              <circle cx="180" cy="86" r="6" fill="#1c1c1c"/>
-              <path d="M142 109c11 12 25 12 36 0" stroke="#1c1c1c" stroke-width="4" fill="none" stroke-linecap="round"/>
-              <rect x="116" y="142" width="88" height="130" rx="36" fill="#fff7a8" stroke="#1c1c1c" stroke-width="4"/>
-              <rect x="88" y="162" width="34" height="116" rx="17" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
-              <rect x="198" y="162" width="34" height="116" rx="17" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
-              <rect x="126" y="268" width="28" height="130" rx="14" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
-              <rect x="166" y="268" width="28" height="130" rx="14" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
-              <ellipse cx="141" cy="414" rx="30" ry="14" fill="#8fe0ff" stroke="#1c1c1c" stroke-width="4"/>
-              <ellipse cx="181" cy="414" rx="30" ry="14" fill="#8fe0ff" stroke="#1c1c1c" stroke-width="4"/>
-            </svg>
-            <button class="hotspot active" data-part="eyes" style="top: 72px; left: 152px;">👀</button>
-            <button class="hotspot" data-part="teeth" style="top: 118px; left: 151px;">🦷</button>
-            <button class="hotspot" data-part="neck" style="top: 176px; left: 151px;">🧣</button>
-            <button class="hotspot" data-part="sleep" style="top: 230px; left: 151px;">😴</button>
-            <button class="hotspot" data-part="knee" style="top: 348px; left: 131px;">🦵</button>
-            <button class="hotspot" data-part="feet" style="top: 420px; left: 132px;">🦶</button>
-          </div>
-          <div class="part-card" id="partCard">
-            <div class="part-badge badge-green" id="partLevel">🟢 日常观察</div>
-            <h3 id="partTitle">眼睛：视力正常不等于眼睛舒服</h3>
-            <p id="partSummary">很多人的常规体检只查视力，却不会细看眼表状态、干眼倾向或屏幕使用后的不适感。这个模块帮助用户知道哪些问题值得先观察，哪些情况需要考虑进一步检查。</p>
-            <div class="part-list">
-              <div>
-                <strong>常规体检通常不会细查</strong>
-                <span id="partMissed">干眼、眼表舒适度、长时间屏幕使用后的视觉疲劳</span>
-              </div>
-              <div>
-                <strong>日常可以怎么观察</strong>
-                <span id="partObserve">是否频繁酸涩、畏光、干痒、眨眼变多</span>
-              </div>
-              <div>
-                <strong>什么情况建议进一步检查</strong>
-                <span id="partAction">如果反复出现干涩、异物感、夜间看屏困难，可考虑眼科面诊</span>
+          <!-- Info panel (desktop) -->
+          <div class="info-panel" id="infoPanel">
+            <div class="panel-idle" id="panelIdle">
+              <div class="idle-orb" aria-hidden="true"></div>
+              <p class="idle-title">点击身体部位</p>
+              <p class="idle-desc">从左侧图像或上方标签中选择一个部位，查看详细健康科普信息与分级建议。</p>
+              <div class="idle-hints">
+                <div class="idle-hint">💡 13 个核心关注部位</div>
+                <div class="idle-hint">📊 🟢🟡🔴 三色分级</div>
+                <div class="idle-hint">🏥 就诊科室推荐</div>
               </div>
             </div>
+            <div class="panel-content hidden" id="panelContent"></div>
           </div>
-        </div>
-      </section>
 
-      <section class="section section-colors">
-        <div class="section-head narrow">
-          <div class="eyebrow">三色分级</div>
-          <h2>让用户知道“要不要现在做”，而不是只会更焦虑</h2>
-        </div>
-        <div class="color-grid">
-          <article class="color-card green">
-            <h3>🟢 日常观察</h3>
-            <p>只给生活方式与自查动作，不制造多余焦虑。</p>
-          </article>
-          <article class="color-card yellow">
-            <h3>🟡 有触发条件再考虑</h3>
-            <p>明确告诉用户：什么情况、看哪个科、可能会涉及哪些检查。</p>
-          </article>
-          <article class="color-card red">
-            <h3>🔴 不建议盲做</h3>
-            <p>针对营销噱头、无症状滥查、主流指南不推荐的项目进行提醒。</p>
-          </article>
-        </div>
-      </section>
+        </div><!-- /.scanner-layout -->
+      </div>
+    </section>
 
-      <section id="scenes" class="section">
+    <!-- ─── Grade Guide ───────────────────────── -->
+    <section id="grades" class="grades-section">
+      <div class="container">
         <div class="section-head">
-          <div class="eyebrow">使用场景</div>
-          <h2>不是“知识很多”，而是“真能拿来用”</h2>
+          <span class="section-eyebrow">三色分级体系</span>
+          <h2>帮你判断「要不要现在去做」</h2>
+          <p class="section-sub">症状与风险驱动，不鼓励盲做。科普 ≠ 诊断。</p>
         </div>
-        <div class="scene-grid">
-          <article class="scene-card">
-            <span class="scene-icon">💼</span>
-            <h3>离职前体检</h3>
-            <p>答 6 题，快速生成“套餐已覆盖 / 建议加项 / 不建议加项”的清单，截图或打印直接带去体检中心。</p>
-          </article>
-          <article class="scene-card">
-            <span class="scene-icon">👨‍👩‍👧</span>
-            <h3>替家人整理</h3>
-            <p>给父母或伴侣看更友好的身体地图，不必翻一堆公众号文章，直接抓住重点部位。</p>
-          </article>
-          <article class="scene-card">
-            <span class="scene-icon">🧍</span>
-            <h3>某个部位最近不舒服</h3>
-            <p>从卡通小人直接点进对应部位，看懂“先观察什么”“什么情况下该去医院”。</p>
-          </article>
+        <div class="grades-grid">
+          <div class="grade-card gc-green">
+            <div class="grade-dot"></div>
+            <h3>🟢 日常观察 / 自我管理</h3>
+            <p>无需就医，可通过生活方式调整或自查来应对，不额外制造焦虑。</p>
+            <div class="grade-eg">例：足弓观察、屏幕用眼习惯、睡眠自测量表</div>
+          </div>
+          <div class="grade-card gc-yellow">
+            <div class="grade-dot"></div>
+            <h3>🟡 症状出现可考虑检查</h3>
+            <p>有明确症状、家族史或高风险因素时，建议至对应科室就诊，告知具体情况。</p>
+            <div class="grade-eg">例：颈椎手麻、反复反酸、甲状腺家族史</div>
+          </div>
+          <div class="grade-card gc-red">
+            <div class="grade-dot"></div>
+            <h3>🔴 不建议盲目做</h3>
+            <p>无症状 / 无指征时不应作为「健康套餐」加项，避免过度医疗或假阳性焦虑。</p>
+            <div class="grade-eg">例：无症状全身 MRI、IgG 食物不耐受检测</div>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section section-features">
-        <div class="section-head">
-          <div class="eyebrow">功能结构</div>
-          <h2>一页就能讲清楚产品骨架</h2>
-        </div>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <h3>卡通小人地图</h3>
-            <p>SVG 热区点击，移动端优先，支持高亮反馈、低动效和无障碍 aria-label。</p>
-          </div>
-          <div class="feature-card">
-            <h3>部位卡片模板</h3>
-            <p>一句话重点 → 200–300 字主科普 → 可展开详情，保证信息密度和阅读节奏都友好。</p>
-          </div>
-          <div class="feature-card">
-            <h3>关注清单生成</h3>
-            <p>通过 8–10 题规则引擎问卷，生成匿名清单，不依赖 AI 诊断，不制造黑箱评分。</p>
-          </div>
-          <div class="feature-card">
-            <h3>离职前专题页</h3>
-            <p>叠加常规套餐对照表，输出可打印 A4 清单，帮助用户做体检加项决策。</p>
-          </div>
-          <div class="feature-card">
-            <h3>分享卡片</h3>
-            <p>支持生成适合微信传播的单张卡片，让“替父母整理建议”这类场景更顺手。</p>
-          </div>
-          <div class="feature-card">
-            <h3>合规与边界</h3>
-            <p>首页、卡片、结果页三处固定免责声明，明确这是健康科普工具，不是诊断产品。</p>
-          </div>
-        </div>
-      </section>
+    <!-- ─── Disclaimer ─────────────────────── -->
+    <div class="disclaimer">
+      <div class="container">
+        <span class="disclaimer-icon" aria-hidden="true">⚕️</span>
+        <p>本产品提供健康科普信息，不构成医疗诊断或治疗建议。任何检查或治疗决策请遵循专业医师面诊。</p>
+      </div>
+    </div>
 
-      <section id="tech" class="section section-tech">
-        <div class="section-head">
-          <div class="eyebrow">技术亮点</div>
-          <h2>内容可审、规则可解释、前端体验轻</h2>
-        </div>
-        <div class="tech-grid">
-          <article class="tech-card">
-            <h3>Next.js + SVG 热区</h3>
-            <p>响应式、移动端优先，首页可静态化，热区命中率与可访问性都更好。</p>
-          </article>
-          <article class="tech-card">
-            <h3>Headless CMS + 医学审稿流</h3>
-            <p>部位卡片、问卷规则、三色文案全部可版本化，并保留医学审校留痕。</p>
-          </article>
-          <article class="tech-card">
-            <h3>规则引擎替代黑箱模型</h3>
-            <p>关注清单采用 YAML / JSON 规则维护，医学顾问可以直接理解和复审。</p>
-          </article>
-          <article class="tech-card">
-            <h3>匿名 Focus List</h3>
-            <p>默认不收集真实姓名、联系方式，只保留生成清单所需字段，30 天自动过期。</p>
-          </article>
-        </div>
-      </section>
+  </main>
 
-      <section class="section final-cta">
-        <div class="final-card">
-          <div>
-            <div class="eyebrow">一句话总结</div>
-            <h2>把零散健康焦虑，变成一张温和、克制、可执行的关注地图</h2>
-            <p>健康小人全身扫描的价值，不是让用户做更多检查，而是帮他看清：哪些值得留意，哪些不用被营销带跑。</p>
-          </div>
-          <div class="final-actions">
-            <a class="primary-btn" href="#map-demo">回到互动示意</a>
-            <a class="secondary-btn" href="#">预约产品演示（占位）</a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <p>本产品提供健康科普信息，不构成医疗诊断或治疗建议。任何检查或治疗决策请遵循专业医师面诊。</p>
-      <p>© 2026 健康小人全身扫描 · Cute concept landing page for GitHub Pages</p>
-    </footer>
+  <!-- ─── Mobile bottom sheet ─────────────── -->
+  <div class="sheet-backdrop" id="sheetBackdrop" aria-hidden="true"></div>
+  <div class="bottom-sheet" id="bottomSheet" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <div class="sheet-scroll">
+      <div class="sheet-body" id="sheetBody"></div>
+    </div>
   </div>
 
+  <!-- ─── Footer ────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-brand">全身健康关注地图</p>
+      <p class="footer-sub">Full-Body Health Awareness Map · 健康科普工具，非医疗诊断</p>
+      <p class="footer-copy">© 2026 · 内容仅供参考，检查决策请遵循专业医师面诊</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="./script.js"></script>
 </body>
 </html>
