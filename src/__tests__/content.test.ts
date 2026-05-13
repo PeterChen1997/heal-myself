@@ -1,6 +1,8 @@
 import { bodyParts } from '../data/bodyParts'
 import { imagePrompts } from '../data/imagePrompts'
 import { sections } from '../data/sections'
+import { existsSync } from 'node:fs'
+import { resolve } from 'node:path'
 
 describe('health atlas content', () => {
   it('covers the approved 13 body parts across 4 sections', () => {
@@ -52,5 +54,13 @@ describe('health atlas content', () => {
     expect(imagePrompts.map((prompt) => prompt.fileName)).toEqual(
       expect.arrayContaining(['hero-health-map.webp', ...referenced])
     )
+  })
+
+  it('has a local raster asset for every prompt', () => {
+    imagePrompts.forEach((prompt) => {
+      expect(
+        existsSync(resolve(process.cwd(), 'src/assets/generated', prompt.fileName))
+      ).toBe(true)
+    })
   })
 })
