@@ -4,8 +4,18 @@ import { Header } from './components/layout/Header'
 import { SectionNav } from './components/layout/SectionNav'
 import { bodyParts } from './data/bodyParts'
 import { sections } from './data/sections'
+import { useEffect } from 'react'
 
 export default function App() {
+  useEffect(() => {
+    const targetId = window.location.hash.slice(1)
+    if (!targetId) return
+
+    window.requestAnimationFrame(() => {
+      document.getElementById(targetId)?.scrollIntoView()
+    })
+  }, [])
+
   return (
     <>
       <Header />
