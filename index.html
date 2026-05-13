@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f4ed" />
+  <title>健康小人全身扫描｜常规体检之外，看看身体细节值得被关注</title>
+  <meta name="description" content="一张可互动的卡通小人地图，帮助用户系统了解常规体检之外、容易被忽略但影响生活质量和长期健康的关注点。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-badge">🩺</span>
+        <span>健康小人全身扫描</span>
+      </div>
+      <nav class="nav">
+        <a href="#map-demo">互动示意</a>
+        <a href="#scenes">使用场景</a>
+        <a href="#tech">技术方案</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Full-Body Health Awareness Map</div>
+          <h1>常规体检之外，<br/>看看身体细节值得被关注</h1>
+          <p class="hero-subtitle">
+            一张可互动的卡通小人地图，帮你用更轻松、可视化、可保存的方式，
+            系统了解那些容易被忽略、却会影响生活质量和长期健康的身体关注点。
+          </p>
+          <div class="hero-cta-row">
+            <a class="primary-btn" href="#map-demo">立即体验全身关注扫描</a>
+            <a class="secondary-btn" href="#tech">查看技术亮点</a>
+          </div>
+          <ul class="hero-points">
+            <li>✅ 科普工具，不是医疗诊断</li>
+            <li>✅ 症状 / 风险驱动，不鼓励盲做</li>
+            <li>✅ 移动端优先，适合自己看也适合发给家人</li>
+          </ul>
+        </div>
+        <div class="hero-visual-card">
+          <div class="floating-tag tag-left">干眼 · 足弓 · 睡眠</div>
+          <div class="floating-tag tag-right">离职前体检加项建议</div>
+          <div class="hero-figure-wrap">
+            <div class="hero-glow"></div>
+            <div class="scan-line" aria-hidden="true"></div>
+            <div class="scan-pill">30 秒生成关注清单</div>
+            <svg class="hero-figure" viewBox="0 0 320 520" aria-label="卡通健康小人示意图" role="img">
+              <circle cx="160" cy="82" r="54" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
+              <path d="M112 74c6-28 30-46 48-46s42 18 48 46" fill="#ff9fb3" stroke="#1c1c1c" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="140" cy="86" r="6" fill="#1c1c1c"/>
+              <circle cx="180" cy="86" r="6" fill="#1c1c1c"/>
+              <path d="M142 109c11 12 25 12 36 0" stroke="#1c1c1c" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <rect x="116" y="142" width="88" height="130" rx="36" fill="#fff7a8" stroke="#1c1c1c" stroke-width="4"/>
+              <rect x="88" y="162" width="34" height="116" rx="17" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
+              <rect x="198" y="162" width="34" height="116" rx="17" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
+              <rect x="126" y="268" width="28" height="130" rx="14" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
+              <rect x="166" y="268" width="28" height="130" rx="14" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
+              <ellipse cx="141" cy="414" rx="30" ry="14" fill="#8fe0ff" stroke="#1c1c1c" stroke-width="4"/>
+              <ellipse cx="181" cy="414" rx="30" ry="14" fill="#8fe0ff" stroke="#1c1c1c" stroke-width="4"/>
+              <circle cx="160" cy="178" r="15" fill="#ffb45e" stroke="#1c1c1c" stroke-width="4"/>
+              <circle cx="160" cy="230" r="15" fill="#9be58f" stroke="#1c1c1c" stroke-width="4"/>
+              <circle cx="95" cy="222" r="14" fill="#ffb7d5" stroke="#1c1c1c" stroke-width="4"/>
+              <circle cx="225" cy="222" r="14" fill="#ffb7d5" stroke="#1c1c1c" stroke-width="4"/>
+              <circle cx="140" cy="344" r="14" fill="#b8b0ff" stroke="#1c1c1c" stroke-width="4"/>
+              <circle cx="180" cy="344" r="14" fill="#b8b0ff" stroke="#1c1c1c" stroke-width="4"/>
+              <circle cx="141" cy="415" r="11" fill="#84e7a5" stroke="#1c1c1c" stroke-width="4"/>
+              <circle cx="181" cy="415" r="11" fill="#84e7a5" stroke="#1c1c1c" stroke-width="4"/>
+            </svg>
+          </div>
+          <div class="mini-card-row">
+            <div class="mini-card">
+              <strong>部位卡片</strong>
+              <span>一句话重点 + 三色等级</span>
+            </div>
+            <div class="mini-card">
+              <strong>关注清单</strong>
+              <span>问卷生成，可保存可分享</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip">
+        <div>面向 C 端的健康科普工具</div>
+        <div>卡通小人地图 + 部位卡片 + 关注清单生成</div>
+        <div>不涉及诊断、处方、检查预约</div>
+      </section>
+
+      <section id="map-demo" class="section section-map">
+        <div class="section-head">
+          <div class="eyebrow">互动示意</div>
+          <h2>一眼看懂，全身哪里值得被关注</h2>
+          <p>点击小人的不同部位，查看「常规体检通常不会细查什么」「日常观察方法」「什么情况建议进一步检查」等信息。</p>
+        </div>
+        <div class="map-demo-grid">
+          <div class="map-card">
+            <svg class="interactive-figure" viewBox="0 0 320 520" aria-hidden="true">
+              <circle cx="160" cy="82" r="54" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
+              <path d="M112 74c6-28 30-46 48-46s42 18 48 46" fill="#ff9fb3" stroke="#1c1c1c" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="140" cy="86" r="6" fill="#1c1c1c"/>
+              <circle cx="180" cy="86" r="6" fill="#1c1c1c"/>
+              <path d="M142 109c11 12 25 12 36 0" stroke="#1c1c1c" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <rect x="116" y="142" width="88" height="130" rx="36" fill="#fff7a8" stroke="#1c1c1c" stroke-width="4"/>
+              <rect x="88" y="162" width="34" height="116" rx="17" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
+              <rect x="198" y="162" width="34" height="116" rx="17" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
+              <rect x="126" y="268" width="28" height="130" rx="14" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
+              <rect x="166" y="268" width="28" height="130" rx="14" fill="#ffd7c8" stroke="#1c1c1c" stroke-width="4"/>
+              <ellipse cx="141" cy="414" rx="30" ry="14" fill="#8fe0ff" stroke="#1c1c1c" stroke-width="4"/>
+              <ellipse cx="181" cy="414" rx="30" ry="14" fill="#8fe0ff" stroke="#1c1c1c" stroke-width="4"/>
+            </svg>
+            <button class="hotspot active" data-part="eyes" style="top: 72px; left: 152px;">👀</button>
+            <button class="hotspot" data-part="teeth" style="top: 118px; left: 151px;">🦷</button>
+            <button class="hotspot" data-part="neck" style="top: 176px; left: 151px;">🧣</button>
+            <button class="hotspot" data-part="sleep" style="top: 230px; left: 151px;">😴</button>
+            <button class="hotspot" data-part="knee" style="top: 348px; left: 131px;">🦵</button>
+            <button class="hotspot" data-part="feet" style="top: 420px; left: 132px;">🦶</button>
+          </div>
+          <div class="part-card" id="partCard">
+            <div class="part-badge badge-green" id="partLevel">🟢 日常观察</div>
+            <h3 id="partTitle">眼睛：视力正常不等于眼睛舒服</h3>
+            <p id="partSummary">很多人的常规体检只查视力，却不会细看眼表状态、干眼倾向或屏幕使用后的不适感。这个模块帮助用户知道哪些问题值得先观察，哪些情况需要考虑进一步检查。</p>
+            <div class="part-list">
+              <div>
+                <strong>常规体检通常不会细查</strong>
+                <span id="partMissed">干眼、眼表舒适度、长时间屏幕使用后的视觉疲劳</span>
+              </div>
+              <div>
+                <strong>日常可以怎么观察</strong>
+                <span id="partObserve">是否频繁酸涩、畏光、干痒、眨眼变多</span>
+              </div>
+              <div>
+                <strong>什么情况建议进一步检查</strong>
+                <span id="partAction">如果反复出现干涩、异物感、夜间看屏困难，可考虑眼科面诊</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-colors">
+        <div class="section-head narrow">
+          <div class="eyebrow">三色分级</div>
+          <h2>让用户知道“要不要现在做”，而不是只会更焦虑</h2>
+        </div>
+        <div class="color-grid">
+          <article class="color-card green">
+            <h3>🟢 日常观察</h3>
+            <p>只给生活方式与自查动作，不制造多余焦虑。</p>
+          </article>
+          <article class="color-card yellow">
+            <h3>🟡 有触发条件再考虑</h3>
+            <p>明确告诉用户：什么情况、看哪个科、可能会涉及哪些检查。</p>
+          </article>
+          <article class="color-card red">
+            <h3>🔴 不建议盲做</h3>
+            <p>针对营销噱头、无症状滥查、主流指南不推荐的项目进行提醒。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="scenes" class="section">
+        <div class="section-head">
+          <div class="eyebrow">使用场景</div>
+          <h2>不是“知识很多”，而是“真能拿来用”</h2>
+        </div>
+        <div class="scene-grid">
+          <article class="scene-card">
+            <span class="scene-icon">💼</span>
+            <h3>离职前体检</h3>
+            <p>答 6 题，快速生成“套餐已覆盖 / 建议加项 / 不建议加项”的清单，截图或打印直接带去体检中心。</p>
+          </article>
+          <article class="scene-card">
+            <span class="scene-icon">👨‍👩‍👧</span>
+            <h3>替家人整理</h3>
+            <p>给父母或伴侣看更友好的身体地图，不必翻一堆公众号文章，直接抓住重点部位。</p>
+          </article>
+          <article class="scene-card">
+            <span class="scene-icon">🧍</span>
+            <h3>某个部位最近不舒服</h3>
+            <p>从卡通小人直接点进对应部位，看懂“先观察什么”“什么情况下该去医院”。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-features">
+        <div class="section-head">
+          <div class="eyebrow">功能结构</div>
+          <h2>一页就能讲清楚产品骨架</h2>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>卡通小人地图</h3>
+            <p>SVG 热区点击，移动端优先，支持高亮反馈、低动效和无障碍 aria-label。</p>
+          </div>
+          <div class="feature-card">
+            <h3>部位卡片模板</h3>
+            <p>一句话重点 → 200–300 字主科普 → 可展开详情，保证信息密度和阅读节奏都友好。</p>
+          </div>
+          <div class="feature-card">
+            <h3>关注清单生成</h3>
+            <p>通过 8–10 题规则引擎问卷，生成匿名清单，不依赖 AI 诊断，不制造黑箱评分。</p>
+          </div>
+          <div class="feature-card">
+            <h3>离职前专题页</h3>
+            <p>叠加常规套餐对照表，输出可打印 A4 清单，帮助用户做体检加项决策。</p>
+          </div>
+          <div class="feature-card">
+            <h3>分享卡片</h3>
+            <p>支持生成适合微信传播的单张卡片，让“替父母整理建议”这类场景更顺手。</p>
+          </div>
+          <div class="feature-card">
+            <h3>合规与边界</h3>
+            <p>首页、卡片、结果页三处固定免责声明，明确这是健康科普工具，不是诊断产品。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="tech" class="section section-tech">
+        <div class="section-head">
+          <div class="eyebrow">技术亮点</div>
+          <h2>内容可审、规则可解释、前端体验轻</h2>
+        </div>
+        <div class="tech-grid">
+          <article class="tech-card">
+            <h3>Next.js + SVG 热区</h3>
+            <p>响应式、移动端优先，首页可静态化，热区命中率与可访问性都更好。</p>
+          </article>
+          <article class="tech-card">
+            <h3>Headless CMS + 医学审稿流</h3>
+            <p>部位卡片、问卷规则、三色文案全部可版本化，并保留医学审校留痕。</p>
+          </article>
+          <article class="tech-card">
+            <h3>规则引擎替代黑箱模型</h3>
+            <p>关注清单采用 YAML / JSON 规则维护，医学顾问可以直接理解和复审。</p>
+          </article>
+          <article class="tech-card">
+            <h3>匿名 Focus List</h3>
+            <p>默认不收集真实姓名、联系方式，只保留生成清单所需字段，30 天自动过期。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section final-cta">
+        <div class="final-card">
+          <div>
+            <div class="eyebrow">一句话总结</div>
+            <h2>把零散健康焦虑，变成一张温和、克制、可执行的关注地图</h2>
+            <p>健康小人全身扫描的价值，不是让用户做更多检查，而是帮他看清：哪些值得留意，哪些不用被营销带跑。</p>
+          </div>
+          <div class="final-actions">
+            <a class="primary-btn" href="#map-demo">回到互动示意</a>
+            <a class="secondary-btn" href="#">预约产品演示（占位）</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>本产品提供健康科普信息，不构成医疗诊断或治疗建议。任何检查或治疗决策请遵循专业医师面诊。</p>
+      <p>© 2026 健康小人全身扫描 · Cute concept landing page for GitHub Pages</p>
+    </footer>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
