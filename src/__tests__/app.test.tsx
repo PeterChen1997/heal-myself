@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import App from '../App'
 
 describe('App', () => {
-  it('renders the health atlas hero and section navigation', () => {
+  it('renders the health atlas hero, navigation, atlas sections and disclaimer', () => {
     render(<App />)
 
     expect(screen.getByRole('heading', { name: '全身健康关注地图' })).toBeInTheDocument()
@@ -11,5 +11,9 @@ describe('App', () => {
     expect(screen.getByRole('link', { name: '颈肩躯干' })).toHaveAttribute('href', '#neck-torso')
     expect(screen.getByRole('link', { name: '运动系统' })).toHaveAttribute('href', '#movement')
     expect(screen.getByRole('link', { name: '系统关注' })).toHaveAttribute('href', '#system')
+    expect(screen.getByRole('heading', { name: '眼睛' })).toBeInTheDocument()
+    expect(screen.getByText('视力正常，不等于眼睛舒服。')).toBeInTheDocument()
+    expect(screen.getAllByText('日常怎么看')[0]).toBeInTheDocument()
+    expect(screen.getByText(/本页面提供健康科普信息/)).toBeInTheDocument()
   })
 })
