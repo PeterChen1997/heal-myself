@@ -1,13 +1,10 @@
 import type { AtlasSection } from '../../data/sections'
-import { useScrollSpy } from '../../hooks/useScrollSpy'
-
 type SectionNavProps = {
+  activeId: string
   sections: AtlasSection[]
 }
 
-export function SectionNav({ sections }: SectionNavProps) {
-  const activeId = useScrollSpy(sections.map((section) => section.id))
-
+export function SectionNav({ activeId, sections }: SectionNavProps) {
   return (
     <nav aria-label="健康图鉴分区" className="section-nav">
       {sections.map((section) => (

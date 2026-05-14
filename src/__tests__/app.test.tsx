@@ -2,6 +2,10 @@ import { render, screen } from '@testing-library/react'
 import App from '../App'
 
 describe('App', () => {
+  afterEach(() => {
+    window.history.pushState({}, '', '/')
+  })
+
   it('renders the health atlas hero, navigation, atlas sections and disclaimer', () => {
     render(<App />)
 
@@ -15,5 +19,14 @@ describe('App', () => {
     expect(screen.getByText('视力正常，不等于眼睛舒服。')).toBeInTheDocument()
     expect(screen.getAllByText('日常怎么看')[0]).toBeInTheDocument()
     expect(screen.getByText(/本页面提供健康科普信息/)).toBeInTheDocument()
+  })
+
+  it('marks the guide header action active when opening the guide hash', () => {
+    window.history.pushState({}, '', '/#guide')
+
+    render(<App />)
+
+    expect(screen.getByRole('link', { name: '三色分级' })).toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('link', { name: '头面部' })).not.toHaveAttribute('aria-current')
   })
 })

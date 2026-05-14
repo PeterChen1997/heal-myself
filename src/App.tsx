@@ -5,8 +5,12 @@ import { SectionNav } from './components/layout/SectionNav'
 import { bodyParts } from './data/bodyParts'
 import { sections } from './data/sections'
 import { useEffect } from 'react'
+import { useScrollSpy } from './hooks/useScrollSpy'
 
 export default function App() {
+  const sectionIds = sections.map((section) => section.id)
+  const activeId = useScrollSpy([...sectionIds, 'guide'])
+
   useEffect(() => {
     const targetId = window.location.hash.slice(1)
     if (!targetId) return
@@ -18,8 +22,8 @@ export default function App() {
 
   return (
     <>
-      <Header />
-      <SectionNav sections={sections} />
+      <Header activeId={activeId} />
+      <SectionNav activeId={activeId} sections={sections} />
       <main className="app-shell" id="top">
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-art" aria-hidden="true">

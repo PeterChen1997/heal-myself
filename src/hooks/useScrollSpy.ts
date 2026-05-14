@@ -1,35 +1,68 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 export function useScrollSpy(sectionIds: string[]) {
-  const [activeId, setActiveId] = useState(sectionIds[0] ?? '')
+  const [activeId, setActiveId] = useState(() => {
+    const hashId = window.location.hash.slice(1)
+    return sectionIds.includes(hashId) ? hashId : (sectionIds[0] ?? '')
+  })
 
-  useEffect(() => {
-    if (typeof IntersectionObserver === 'undefined') {
-      return undefined
+  const updateActiveId = useCallback(() => {
+    const anchorOffset = 124
+    const guideElement = document.getElementById('guide')
+    const guideTop = guideElement?.getBoundingClientRect().top
+    const isNearPageEnd =
+      window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 24
+
+    if (
+      sectionIds.includes('guide') &&
+      ((guideTop !== undefined && guideTop < window.innerHeight * 0.72) || isNearPageEnd)
+    ) {
+      setActiveId('guide')
+      return
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+    const candidates = sectionIds
+      .map((id) => {
+        const element = document.getElementById(id)
+        if (!element) return null
 
-        if (visible?.target.id) {
-          setActiveId(visible.target.id)
+        return {
+          id,
+          top: element.getBoundingClientRect().top
         }
-      },
-      {
-        rootMargin: '-20% 0px -60% 0px',
-        threshold: [0.08, 0.18, 0.32]
+      })
+      .filter((item): item is { id: string; top: number } => item !== null)
+
+    const passed = candidates.filter((candidate) => candidate.top <= anchorOffset)
+    const nextId = passed.at(-1)?.id ?? candidates[0]?.id ?? ''
+
+    if (nextId) {
+      setActiveId(nextId)
+    }
+  }, [sectionIds])
+
+  useEffect(() => {
+    updateActiveId()
+
+    window.addEventListener('scroll', updateActiveId, { passive: true })
+    window.addEventListener('resize', updateActiveId)
+
+    return () => {
+      window.removeEventListener('scroll', updateActiveId)
+      window.removeEventListener('resize', updateActiveId)
+    }
+  }, [updateActiveId])
+
+  useEffect(() => {
+    const updateFromHash = () => {
+      const hashId = window.location.hash.slice(1)
+      if (sectionIds.includes(hashId)) {
+        setActiveId(hashId)
       }
-    )
+    }
 
-    sectionIds.forEach((id) => {
-      const element = document.getElementById(id)
-      if (element) observer.observe(element)
-    })
-
-    return () => observer.disconnect()
+    window.addEventListener('hashchange', updateFromHash)
+    return () => window.removeEventListener('hashchange', updateFromHash)
   }, [sectionIds])
 
   return activeId
