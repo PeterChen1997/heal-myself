@@ -45,6 +45,161 @@ function motifSvg(motif, palette, fileName) {
       <path d="M812 600 C862 556, 910 556, 948 600" fill="none" stroke="${accent}" stroke-width="18" stroke-linecap="round" opacity="0.38"/>`
   }
 
+  if (isLifestyle) {
+    if (motif === 'eyes') {
+      return `
+        <rect x="332" y="454" width="328" height="206" rx="34" fill="#ffffff" opacity="0.9"/>
+        <rect x="370" y="494" width="252" height="118" rx="18" fill="${soft}" opacity="0.9"/>
+        <circle cx="770" cy="382" r="72" fill="#ffe8ca"/>
+        <path d="M700 376 C734 332, 806 332, 840 376 C806 430, 734 430, 700 376Z" fill="#ffffff"/>
+        <circle cx="770" cy="378" r="26" fill="${accent}" opacity="0.72"/>
+        <path d="M698 538 C750 498, 822 498, 870 538" fill="none" stroke="${accent}" stroke-width="18" stroke-linecap="round" opacity="0.36"/>
+        <path d="M836 256 L900 214 M864 304 L936 292" stroke="${warm}" stroke-width="18" stroke-linecap="round" opacity="0.74"/>
+        <circle cx="454" cy="350" r="38" fill="${accent}" opacity="0.18"/>
+        <path d="M426 350 H482 M454 322 V378" stroke="${accent}" stroke-width="12" stroke-linecap="round" opacity="0.42"/>`
+    }
+
+    if (motif === 'oral') {
+      return `
+        <rect x="336" y="270" width="270" height="330" rx="42" fill="#ffffff" opacity="0.9"/>
+        <circle cx="470" cy="390" r="86" fill="#ffe8ca"/>
+        <path d="M396 414 C434 460, 506 460, 544 414" fill="none" stroke="#d95c4a" stroke-width="18" stroke-linecap="round" opacity="0.38"/>
+        <path d="M694 286 L872 236" stroke="${accent}" stroke-width="22" stroke-linecap="round" opacity="0.42"/>
+        <path d="M704 350 L892 322" stroke="${accent}" stroke-width="16" stroke-linecap="round" opacity="0.32"/>
+        <rect x="690" y="424" width="210" height="78" rx="30" fill="${soft}" opacity="0.9"/>
+        <path d="M710 554 C770 510, 826 510, 884 554" fill="none" stroke="${warm}" stroke-width="18" stroke-linecap="round" opacity="0.84"/>
+        <circle cx="618" cy="640" r="30" fill="${accent}" opacity="0.2"/>`
+    }
+
+    if (motif === 'nose') {
+      return `
+        <rect x="318" y="334" width="260" height="220" rx="42" fill="#ffffff" opacity="0.86"/>
+        <path d="M458 390 C414 446, 424 518, 490 536 C540 548, 588 520, 582 470 C576 430, 526 426, 512 394" fill="#ffe8ca"/>
+        <path d="M640 292 C730 248, 830 262, 898 326" fill="none" stroke="${accent}" stroke-width="20" stroke-linecap="round" opacity="0.32"/>
+        <circle cx="704" cy="422" r="24" fill="${warm}" opacity="0.82"/>
+        <circle cx="790" cy="384" r="18" fill="${warm}" opacity="0.66"/>
+        <circle cx="856" cy="470" r="22" fill="${warm}" opacity="0.58"/>
+        <rect x="650" y="560" width="260" height="76" rx="30" fill="#ffffff" opacity="0.78"/>
+        <path d="M682 598 H878" stroke="${soft}" stroke-width="18" stroke-linecap="round"/>`
+    }
+
+    if (motif === 'scalp') {
+      return `
+        <rect x="334" y="282" width="236" height="292" rx="44" fill="#ffffff" opacity="0.88"/>
+        <circle cx="452" cy="400" r="82" fill="#ffe8ca"/>
+        <path d="M376 376 C388 292, 516 292, 528 376 C480 338, 424 338, 376 376Z" fill="${accent}" opacity="0.48"/>
+        <path d="M640 268 C724 336, 814 334, 900 268" fill="none" stroke="${soft}" stroke-width="24" stroke-linecap="round"/>
+        <path d="M650 372 C732 428, 808 428, 888 372" fill="none" stroke="${accent}" stroke-width="18" stroke-linecap="round" opacity="0.34"/>
+        <circle cx="680" cy="602" r="22" fill="${warm}" opacity="0.76"/>
+        <circle cx="760" cy="620" r="16" fill="${warm}" opacity="0.62"/>
+        <circle cx="842" cy="596" r="20" fill="${warm}" opacity="0.54"/>`
+    }
+
+    if (motif === 'neck') {
+      return `
+        <rect x="324" y="318" width="282" height="236" rx="42" fill="#ffffff" opacity="0.86"/>
+        <rect x="360" y="362" width="210" height="120" rx="18" fill="${soft}" opacity="0.9"/>
+        <circle cx="748" cy="322" r="68" fill="#ffe8ca"/>
+        <rect x="704" y="390" width="88" height="160" rx="42" fill="#ffe8ca"/>
+        <path d="M752 416 C710 486, 722 560, 792 618" fill="none" stroke="${accent}" stroke-width="22" stroke-linecap="round" opacity="0.34"/>
+        <path d="M354 602 C486 654, 626 654, 758 602" fill="none" stroke="${warm}" stroke-width="22" stroke-linecap="round" opacity="0.78"/>
+        <path d="M646 342 L674 342" stroke="${accent}" stroke-width="16" stroke-linecap="round" opacity="0.42"/>`
+    }
+
+    if (motif === 'thyroid') {
+      return `
+        <rect x="330" y="300" width="236" height="300" rx="44" fill="#ffffff" opacity="0.86"/>
+        <circle cx="448" cy="404" r="74" fill="#ffe8ca"/>
+        <rect x="412" y="470" width="72" height="104" rx="34" fill="#ffe8ca"/>
+        <path d="M658 336 C730 298, 820 314, 872 382" fill="none" stroke="${accent}" stroke-width="18" stroke-linecap="round" opacity="0.34"/>
+        <path d="M656 472 C706 432, 748 494, 704 548 C664 596, 624 536, 656 472Z" fill="${accent}" opacity="0.26"/>
+        <path d="M814 472 C764 432, 722 494, 766 548 C806 596, 846 536, 814 472Z" fill="${accent}" opacity="0.26"/>
+        <circle cx="638" cy="628" r="22" fill="${warm}" opacity="0.72"/>
+        <circle cx="820" cy="628" r="22" fill="${warm}" opacity="0.58"/>`
+    }
+
+    if (motif === 'gut') {
+      return `
+        <rect x="318" y="310" width="250" height="230" rx="42" fill="#ffffff" opacity="0.86"/>
+        <circle cx="404" cy="398" r="42" fill="${warm}" opacity="0.84"/>
+        <circle cx="482" cy="406" r="36" fill="${accent}" opacity="0.24"/>
+        <path d="M636 298 C720 344, 814 344, 898 298" fill="none" stroke="${accent}" stroke-width="18" stroke-linecap="round" opacity="0.34"/>
+        <path d="M642 404 C724 360, 824 370, 884 444" fill="none" stroke="${soft}" stroke-width="22" stroke-linecap="round"/>
+        <rect x="648" y="538" width="236" height="86" rx="30" fill="#ffffff" opacity="0.78"/>
+        <path d="M678 582 H846" stroke="${warm}" stroke-width="18" stroke-linecap="round" opacity="0.82"/>
+        <circle cx="784" cy="670" r="24" fill="${accent}" opacity="0.2"/>`
+    }
+
+    if (motif === 'spine') {
+      return `
+        <rect x="322" y="284" width="250" height="330" rx="44" fill="#ffffff" opacity="0.88"/>
+        <circle cx="448" cy="382" r="76" fill="#ffe8ca"/>
+        <path d="M448 468 V610" stroke="#ffe8ca" stroke-width="74" stroke-linecap="round"/>
+        <path d="M446 462 C428 510, 476 552, 448 602" fill="none" stroke="${accent}" stroke-width="16" stroke-linecap="round" opacity="0.38"/>
+        <path d="M650 330 H884" stroke="${soft}" stroke-width="20" stroke-linecap="round"/>
+        <path d="M674 452 C736 424, 812 424, 874 452" fill="none" stroke="${accent}" stroke-width="18" stroke-linecap="round" opacity="0.34"/>
+        <path d="M660 596 H900" stroke="${warm}" stroke-width="22" stroke-linecap="round" opacity="0.72"/>`
+    }
+
+    if (motif === 'knee') {
+      return `
+        <path d="M442 246 C530 318, 570 390, 568 474" fill="none" stroke="#ffe8ca" stroke-width="76" stroke-linecap="round"/>
+        <path d="M620 482 C616 560, 656 634, 752 698" fill="none" stroke="#ffe8ca" stroke-width="76" stroke-linecap="round"/>
+        <circle cx="584" cy="486" r="80" fill="#ffffff" opacity="0.86"/>
+        <path d="M720 560 C784 522, 850 534, 900 594" fill="none" stroke="${accent}" stroke-width="18" stroke-linecap="round" opacity="0.36"/>
+        <rect x="318" y="660" width="250" height="42" rx="20" fill="${soft}" opacity="0.9"/>
+        <path d="M338 642 C430 598, 530 598, 622 642" fill="none" stroke="${warm}" stroke-width="18" stroke-linecap="round" opacity="0.74"/>
+        <circle cx="782" cy="380" r="26" fill="${accent}" opacity="0.18"/>`
+    }
+
+    if (motif === 'feet') {
+      return `
+        <rect x="310" y="610" width="580" height="42" rx="21" fill="#1f2420" opacity="0.1"/>
+        <ellipse cx="470" cy="472" rx="82" ry="166" fill="#ffe8ca" opacity="0.96" transform="rotate(-12 470 472)"/>
+        <ellipse cx="704" cy="472" rx="82" ry="166" fill="#ffe8ca" opacity="0.82" transform="rotate(12 704 472)"/>
+        <path d="M362 662 C456 626, 562 626, 660 664" fill="none" stroke="${accent}" stroke-width="18" stroke-linecap="round" opacity="0.34"/>
+        <path d="M712 662 C774 626, 826 626, 890 664" fill="none" stroke="${warm}" stroke-width="18" stroke-linecap="round" opacity="0.72"/>
+        <rect x="328" y="278" width="218" height="86" rx="28" fill="#ffffff" opacity="0.78"/>
+        <path d="M360 322 H510" stroke="${soft}" stroke-width="18" stroke-linecap="round"/>`
+    }
+
+    if (motif === 'sleep') {
+      return `
+        <rect x="332" y="420" width="470" height="168" rx="54" fill="#ffffff" opacity="0.82"/>
+        <circle cx="500" cy="374" r="70" fill="#ffe8ca"/>
+        <path d="M408 454 C470 510, 604 510, 668 454" fill="none" stroke="${accent}" stroke-width="18" stroke-linecap="round" opacity="0.3"/>
+        <rect x="744" y="264" width="126" height="190" rx="28" fill="${soft}" opacity="0.9"/>
+        <circle cx="806" cy="324" r="24" fill="${warm}" opacity="0.82"/>
+        <path d="M720 638 C780 598, 842 598, 900 638" fill="none" stroke="${accent}" stroke-width="18" stroke-linecap="round" opacity="0.34"/>
+        <path d="M372 650 H610" stroke="${warm}" stroke-width="18" stroke-linecap="round" opacity="0.7"/>`
+    }
+
+    if (motif === 'allergy') {
+      return `
+        <rect x="322" y="304" width="232" height="292" rx="42" fill="#ffffff" opacity="0.86"/>
+        <circle cx="420" cy="408" r="36" fill="${warm}" opacity="0.84"/>
+        <circle cx="492" cy="468" r="28" fill="${accent}" opacity="0.24"/>
+        <path d="M654 294 C734 258, 820 274, 886 338" fill="none" stroke="${accent}" stroke-width="18" stroke-linecap="round" opacity="0.34"/>
+        <circle cx="680" cy="452" r="26" fill="${warm}" opacity="0.78"/>
+        <circle cx="772" cy="404" r="20" fill="${accent}" opacity="0.24"/>
+        <circle cx="862" cy="486" r="24" fill="${warm}" opacity="0.64"/>
+        <rect x="642" y="586" width="260" height="72" rx="28" fill="#ffffff" opacity="0.76"/>
+        <path d="M674 622 H870" stroke="${soft}" stroke-width="18" stroke-linecap="round"/>`
+    }
+
+    if (motif === 'nutrition') {
+      return `
+        <circle cx="456" cy="438" r="122" fill="#ffffff" opacity="0.88"/>
+        <path d="M456 316 A122 122 0 0 1 578 438 L456 438Z" fill="${accent}" opacity="0.3"/>
+        <path d="M456 438 L578 438 A122 122 0 0 1 456 560Z" fill="${warm}" opacity="0.78"/>
+        <path d="M456 438 L456 560 A122 122 0 0 1 334 438Z" fill="#4e8fd8" opacity="0.22"/>
+        <path d="M662 310 C728 252, 824 252, 892 310" fill="none" stroke="${accent}" stroke-width="18" stroke-linecap="round" opacity="0.34"/>
+        <circle cx="760" cy="424" r="40" fill="${warm}" opacity="0.82"/>
+        <rect x="656" y="548" width="236" height="80" rx="30" fill="#ffffff" opacity="0.78"/>
+        <path d="M688 586 H856" stroke="${soft}" stroke-width="18" stroke-linecap="round"/>`
+    }
+  }
+
   if (motif === 'eyes') {
     return `
       <path d="M346 438 C438 272, 762 272, 854 438 C762 604, 438 604, 346 438Z" fill="#ffffff" opacity="0.92"/>

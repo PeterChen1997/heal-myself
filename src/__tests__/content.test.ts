@@ -46,6 +46,13 @@ describe('health atlas content', () => {
     })
   })
 
+  it('gives every atlas part separate lifestyle and principle images', () => {
+    bodyParts.forEach((part) => {
+      expect(part.images.lifestyle).toBeTruthy()
+      expect(part.images.principle).not.toBe(part.images.lifestyle)
+    })
+  })
+
   it('has prompts for every referenced image asset', () => {
     const referenced = bodyParts.flatMap((part) =>
       [part.images.principle, part.images.lifestyle].filter(Boolean)

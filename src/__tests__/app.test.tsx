@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import App from '../App'
 
 describe('App', () => {
@@ -17,8 +17,22 @@ describe('App', () => {
     expect(screen.getByRole('link', { name: '系统关注' })).toHaveAttribute('href', '#system')
     expect(screen.getByRole('heading', { name: '眼睛' })).toBeInTheDocument()
     expect(screen.getByText('视力正常，不等于眼睛舒服。')).toBeInTheDocument()
+    expect(screen.getAllByText('为什么关注')[0]).toBeInTheDocument()
     expect(screen.getAllByText('日常怎么看')[0]).toBeInTheDocument()
     expect(screen.getByText(/本页面提供健康科普信息/)).toBeInTheDocument()
+  })
+
+  it('keeps section navigation concise without duplicated short labels', () => {
+    render(<App />)
+
+    const nav = screen.getByRole('navigation', { name: '健康图鉴分区' })
+
+    expect(within(nav).getByRole('link', { name: '头面部' })).toBeInTheDocument()
+    expect(within(nav).getByRole('link', { name: '颈肩躯干' })).toBeInTheDocument()
+    expect(within(nav).getByRole('link', { name: '运动系统' })).toBeInTheDocument()
+    expect(within(nav).getByRole('link', { name: '系统关注' })).toBeInTheDocument()
+    expect(within(nav).queryByText('头面')).not.toBeInTheDocument()
+    expect(within(nav).queryByText('运动')).not.toBeInTheDocument()
   })
 
   it('marks the guide header action active when opening the guide hash', () => {

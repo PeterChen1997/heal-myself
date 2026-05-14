@@ -69,7 +69,8 @@ export const bodyParts: BodyPart[] = [
     dontDoBlindly: '无症状时不建议常规做鼻窦 CT，是否需要影像检查应由医生判断。',
     departments: ['耳鼻喉科', '变态反应科'],
     images: {
-      principle: 'nose-overview.webp'
+      principle: 'nose-overview.webp',
+      lifestyle: 'nose-lifestyle.webp'
     }
   },
   {
@@ -85,7 +86,8 @@ export const bodyParts: BodyPart[] = [
     dontDoBlindly: '无明确症状时不建议把头发微量元素检测作为脱发判断依据。',
     departments: ['皮肤科', '毛发门诊'],
     images: {
-      principle: 'scalp-overview.webp'
+      principle: 'scalp-overview.webp',
+      lifestyle: 'scalp-lifestyle.webp'
     }
   },
   {
@@ -118,7 +120,8 @@ export const bodyParts: BodyPart[] = [
     dontDoBlindly: '不要因为发现小结节就反复高频复查，复查间隔应根据超声分级和医生建议决定。',
     departments: ['内分泌科', '甲状腺外科'],
     images: {
-      principle: 'thyroid-overview.webp'
+      principle: 'thyroid-overview.webp',
+      lifestyle: 'thyroid-lifestyle.webp'
     }
   },
   {
@@ -151,7 +154,8 @@ export const bodyParts: BodyPart[] = [
     dontDoBlindly: '不要只凭体态照片购买矫正器或课程，明显问题应先做专业评估。',
     departments: ['康复科', '骨科'],
     images: {
-      principle: 'spine-overview.webp'
+      principle: 'spine-overview.webp',
+      lifestyle: 'spine-lifestyle.webp'
     }
   },
   {
@@ -218,7 +222,8 @@ export const bodyParts: BodyPart[] = [
     dontDoBlindly: '不建议用 IgG 食物检测来判断“食物过敏”，容易造成不必要忌口。',
     departments: ['变态反应科', '皮肤科', '耳鼻喉科'],
     images: {
-      principle: 'allergy-overview.webp'
+      principle: 'allergy-overview.webp',
+      lifestyle: 'allergy-lifestyle.webp'
     }
   },
   {
@@ -234,7 +239,8 @@ export const bodyParts: BodyPart[] = [
     dontDoBlindly: '不建议长期叠加多种高剂量补剂，脂溶性维生素和矿物质过量也可能带来风险。',
     departments: ['营养科', '全科医学科', '内分泌科'],
     images: {
-      principle: 'nutrition-overview.webp'
+      principle: 'nutrition-overview.webp',
+      lifestyle: 'nutrition-lifestyle.webp'
     }
   }
 ]

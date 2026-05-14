@@ -6,6 +6,7 @@ import { bodyParts } from './data/bodyParts'
 import { sections } from './data/sections'
 import { useEffect } from 'react'
 import { useScrollSpy } from './hooks/useScrollSpy'
+import heroImage from './assets/generated/hero-health-map.webp?url'
 
 export default function App() {
   const sectionIds = sections.map((section) => section.id)
@@ -26,15 +27,13 @@ export default function App() {
       <SectionNav activeId={activeId} sections={sections} />
       <main className="app-shell" id="top">
         <section className="hero" aria-labelledby="hero-title">
-          <div className="hero-art" aria-hidden="true">
-            <div className="hero-orbit" />
-            <div className="hero-panel panel-a" />
-            <div className="hero-panel panel-b" />
-            <div className="hero-panel panel-c" />
-          </div>
+          <img className="hero-art" src={heroImage} alt="" aria-hidden="true" />
           <div className="hero-copy">
-            <p className="eyebrow">Cartoon Health Atlas</p>
-            <h1 id="hero-title">全身健康关注地图</h1>
+            <p className="eyebrow">Health Atlas</p>
+            <h1 aria-label="全身健康关注地图" id="hero-title">
+              <span aria-hidden="true">全身健康</span>
+              <span aria-hidden="true">关注地图</span>
+            </h1>
             <p>
               用卡通科普图梳理常规体检之外容易被忽略的身体关注点。图片负责看懂，文字负责边界。
             </p>
@@ -52,7 +51,7 @@ export default function App() {
         <div className="atlas-layout">
           <aside className="desktop-rail" aria-label="桌面分区目录">
             {sections.map((section) => (
-              <a href={`#${section.id}`} key={section.id}>
+              <a aria-label={`${section.title}桌面目录`} href={`#${section.id}`} key={section.id}>
                 {section.title}
               </a>
             ))}

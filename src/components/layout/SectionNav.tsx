@@ -13,8 +13,7 @@ export function SectionNav({ activeId, sections }: SectionNavProps) {
           href={`#${section.id}`}
           key={section.id}
         >
-          <span>{section.shortLabel}</span>
-          <strong>{section.title}</strong>
+          {section.title}
         </a>
       ))}
     </nav>

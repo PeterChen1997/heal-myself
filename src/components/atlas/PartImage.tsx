@@ -16,7 +16,7 @@ export function PartImage({ fileName, title, variant = 'principle' }: PartImageP
   if (src) {
     return (
       <img
-        alt={`${title}${variant === 'principle' ? '原理图' : '生活观察图'}`}
+        alt={`${title}${variant === 'principle' ? '科普原理图' : '生活观察示意图'}`}
         className="part-image"
         loading="lazy"
         src={src}
@@ -26,7 +26,7 @@ export function PartImage({ fileName, title, variant = 'principle' }: PartImageP
 
   return (
     <div
-      aria-label={`${title}${variant === 'principle' ? '卡通科普图' : '生活观察图'}`}
+      aria-label={`${title}${variant === 'principle' ? '科普原理图' : '生活观察示意图'}`}
       className={`part-image fallback-art ${variant}`}
       role="img"
     >

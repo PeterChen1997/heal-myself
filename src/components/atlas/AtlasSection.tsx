@@ -12,7 +12,6 @@ export function AtlasSection({ parts, section }: AtlasSectionProps) {
   return (
     <section className={`atlas-section ${section.tone}`} id={section.id}>
       <Reveal className="section-intro">
-        <p className="eyebrow">{section.shortLabel}</p>
         <h2>{section.title}</h2>
         <p>{section.summary}</p>
       </Reveal>

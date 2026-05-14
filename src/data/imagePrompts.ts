@@ -89,9 +89,19 @@ export const imagePrompts: ImagePrompt[] = [
     prompt: `${baseStyle} Friendly scalp and hair follicle illustration showing hair density trend, gentle scalp care, no text.`
   },
   {
+    fileName: 'scalp-lifestyle.webp',
+    title: '头皮生活观察图',
+    prompt: `${baseStyle} Morning mirror and hairbrush scene showing gentle hair shedding observation and scalp care routine, no text.`
+  },
+  {
     fileName: 'nose-overview.webp',
     title: '鼻腔概览图',
     prompt: `${baseStyle} Cute nose and sinus airflow illustration with pollen dots and sleep connection cue, no text.`
+  },
+  {
+    fileName: 'nose-lifestyle.webp',
+    title: '鼻腔生活观察图',
+    prompt: `${baseStyle} Bedside and window scene showing morning sneezing, pollen, tissue, and sleep comfort cues, no text.`
   },
   {
     fileName: 'thyroid-overview.webp',
@@ -99,9 +109,19 @@ export const imagePrompts: ImagePrompt[] = [
     prompt: `${baseStyle} Simple neck illustration highlighting butterfly-shaped thyroid area, checkup card, calm non-scary tone, no text.`
   },
   {
+    fileName: 'thyroid-lifestyle.webp',
+    title: '甲状腺生活观察图',
+    prompt: `${baseStyle} Calm self-observation scene with neck mirror check, heartbeat and energy cues, friendly non-diagnostic tone, no text.`
+  },
+  {
     fileName: 'spine-overview.webp',
     title: '脊柱概览图',
     prompt: `${baseStyle} Friendly posture diagram showing shoulders, spine alignment, pelvis tilt, and mirror observation, no text.`
+  },
+  {
+    fileName: 'spine-lifestyle.webp',
+    title: '脊柱生活观察图',
+    prompt: `${baseStyle} Mirror posture check scene with shoulders and pelvis alignment, cozy home setting, no text.`
   },
   {
     fileName: 'allergy-overview.webp',
@@ -109,8 +129,18 @@ export const imagePrompts: ImagePrompt[] = [
     prompt: `${baseStyle} Cartoon allergy map with pollen, pet dander, food plate, and IgE-style shield metaphor, no text.`
   },
   {
+    fileName: 'allergy-lifestyle.webp',
+    title: '过敏生活观察图',
+    prompt: `${baseStyle} Everyday trigger diary scene with window pollen, pet dander, meal plate, and gentle symptom tracking icons, no text.`
+  },
+  {
     fileName: 'nutrition-overview.webp',
     title: '营养概览图',
     prompt: `${baseStyle} Friendly nutrition plate with vitamin D sun, iron, B12, and balanced food icons, no pills overload, no text.`
+  },
+  {
+    fileName: 'nutrition-lifestyle.webp',
+    title: '营养生活观察图',
+    prompt: `${baseStyle} Daily food journal scene with sunlight, balanced plate, fatigue and dietary pattern cues, no text.`
   }
 ]
