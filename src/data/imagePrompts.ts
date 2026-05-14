@@ -5,7 +5,7 @@ export type ImagePrompt = {
 }
 
 const baseStyle =
-  'Clean modern cartoon health education illustration, warm off-white background, friendly but credible, soft rounded shapes, simple infographic composition, gentle green, blue and yellow accents, no scary medical imagery, no photorealistic disease, no embedded text labels, no watermark, enough empty space for web UI overlay.'
+  'Premium Apple-style scientific health education raster illustration, warm off-white background, friendly but credible, soft 3D editorial infographic composition, refined anatomy-inspired details, gentle green, blue and muted yellow accents, no scary medical imagery, no photorealistic disease, no embedded text labels, no watermark, generous safe margins for mobile web UI.'
 
 export const imagePrompts: ImagePrompt[] = [
   {
@@ -16,7 +16,7 @@ export const imagePrompts: ImagePrompt[] = [
   {
     fileName: 'eyes-principle.webp',
     title: '眼睛原理图',
-    prompt: `${baseStyle} Explain dry eye with a cute eye cross-section, tear film layers, meibomian gland dots, simple arrows, no text.`
+    prompt: `${baseStyle} Explain dry eye with a clean eye cross-section, tear film layers, meibomian gland dots, simple arrows, no text.`
   },
   {
     fileName: 'eyes-lifestyle.webp',
@@ -26,7 +26,7 @@ export const imagePrompts: ImagePrompt[] = [
   {
     fileName: 'oral-principle.webp',
     title: '口腔原理图',
-    prompt: `${baseStyle} Cute tooth and gum cutaway showing gum pocket, floss path, and wisdom tooth area with simple arrows, no text.`
+    prompt: `${baseStyle} Clean tooth and gum cutaway showing gum pocket, floss path, and wisdom tooth area with simple arrows, no text.`
   },
   {
     fileName: 'oral-lifestyle.webp',
@@ -36,7 +36,7 @@ export const imagePrompts: ImagePrompt[] = [
   {
     fileName: 'neck-principle.webp',
     title: '颈椎原理图',
-    prompt: `${baseStyle} Side-view cartoon neck and head posture diagram showing screen height and neck load with soft arrows, no text.`
+    prompt: `${baseStyle} Side-view scientific neck and head posture diagram showing screen height and neck load with soft arrows, no text.`
   },
   {
     fileName: 'neck-lifestyle.webp',
@@ -56,7 +56,7 @@ export const imagePrompts: ImagePrompt[] = [
   {
     fileName: 'knee-principle.webp',
     title: '膝盖原理图',
-    prompt: `${baseStyle} Cartoon knee joint diagram with patella, meniscus cushion, running impact arrow, no injury gore, no text.`
+    prompt: `${baseStyle} Scientific knee joint diagram with patella, meniscus cushion, running impact arrow, no injury gore, no text.`
   },
   {
     fileName: 'knee-lifestyle.webp',
@@ -66,7 +66,7 @@ export const imagePrompts: ImagePrompt[] = [
   {
     fileName: 'feet-principle.webp',
     title: '足弓原理图',
-    prompt: `${baseStyle} Cute foot arch and footprint pressure map illustration with simple colored pressure zones, no text.`
+    prompt: `${baseStyle} Clean foot arch and footprint pressure map illustration with simple colored pressure zones, no text.`
   },
   {
     fileName: 'feet-lifestyle.webp',
@@ -76,7 +76,7 @@ export const imagePrompts: ImagePrompt[] = [
   {
     fileName: 'sleep-principle.webp',
     title: '睡眠原理图',
-    prompt: `${baseStyle} Cartoon sleep rhythm diagram with moon, sun, gentle wave phases, recovery heart icon, no text.`
+    prompt: `${baseStyle} Scientific sleep rhythm diagram with moon, sun, gentle wave phases, recovery heart icon, no text.`
   },
   {
     fileName: 'sleep-lifestyle.webp',
@@ -96,7 +96,7 @@ export const imagePrompts: ImagePrompt[] = [
   {
     fileName: 'nose-overview.webp',
     title: '鼻腔概览图',
-    prompt: `${baseStyle} Cute nose and sinus airflow illustration with pollen dots and sleep connection cue, no text.`
+    prompt: `${baseStyle} Clean nose and sinus airflow illustration with pollen dots and sleep connection cue, no text.`
   },
   {
     fileName: 'nose-lifestyle.webp',
@@ -126,7 +126,7 @@ export const imagePrompts: ImagePrompt[] = [
   {
     fileName: 'allergy-overview.webp',
     title: '过敏概览图',
-    prompt: `${baseStyle} Cartoon allergy map with pollen, pet dander, food plate, and IgE-style shield metaphor, no text.`
+    prompt: `${baseStyle} Scientific allergy map with pollen, pet dander, food plate, and IgE-style shield metaphor, no text.`
   },
   {
     fileName: 'allergy-lifestyle.webp',

@@ -39,7 +39,8 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: 0;
+  overflow-x: clip;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0)),
     var(--bg);
@@ -74,11 +75,14 @@ p {
   background: rgba(245, 245, 247, 0.88);
   border-bottom: 1px solid var(--line);
   display: flex;
-  justify-content: space-between;
+  gap: 0.75rem;
+  inset-inline: 0;
+  justify-content: flex-start;
   min-height: 3.1rem;
   padding: 0.42rem max(0.875rem, env(safe-area-inset-left));
   position: sticky;
   top: 0;
+  width: 100vw;
   z-index: 30;
 }
 
@@ -92,6 +96,7 @@ p {
 .brand {
   gap: 0.52rem;
   font-size: 1rem;
+  min-width: 0;
 }
 
 .brand-mark {
@@ -108,7 +113,9 @@ p {
   border: 1px solid var(--line-strong);
   border-radius: 999px;
   color: var(--muted);
+  flex: 0 0 auto;
   font-size: 0.82rem;
+  margin-left: 0.55rem;
   min-height: 2rem;
   padding: 0.42rem 0.76rem;
 }
@@ -126,11 +133,13 @@ p {
   border-bottom: 1px solid var(--line);
   display: flex;
   gap: 0.46rem;
+  inset-inline: 0;
   overflow-x: auto;
   padding: 0.48rem max(0.875rem, env(safe-area-inset-left));
   position: sticky;
   scrollbar-width: none;
   top: 3.1rem;
+  width: 100vw;
   z-index: 25;
 }
 
@@ -320,6 +329,7 @@ h3 {
   display: grid;
   gap: 0.78rem;
   margin-inline: 0.72rem;
+  min-width: 0;
   overflow: hidden;
   padding: 0.68rem;
 }
@@ -590,6 +600,37 @@ h3 {
 }
 
 @media (max-width: 359px) {
+  .site-header {
+    gap: 0.5rem;
+    padding-inline: max(0.62rem, env(safe-area-inset-left));
+  }
+
+  .brand {
+    font-size: 0.9rem;
+  }
+
+  .brand-mark {
+    border-radius: 0.62rem;
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+
+  .header-link {
+    font-size: 0.76rem;
+    min-height: 1.85rem;
+    padding: 0.36rem 0.58rem;
+  }
+
+  .section-nav {
+    padding-inline: max(0.62rem, env(safe-area-inset-left));
+  }
+
+  .section-nav a {
+    font-size: 0.8rem;
+    min-height: 2rem;
+    padding: 0.38rem 0.68rem;
+  }
+
   .hero {
     gap: 0.72rem;
     grid-template-columns: 1fr;
@@ -620,11 +661,29 @@ h3 {
   .part-science-row {
     grid-template-columns: minmax(0, 1.24fr) minmax(5.9rem, 0.76fr);
   }
+
+  .tagline {
+    font-size: 0.92rem;
+  }
+
+  .why-block p,
+  .advice-card p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
 }
 
 @media (min-width: 760px) {
   html {
     scroll-padding-top: 5.4rem;
+  }
+
+  .site-header {
+    justify-content: space-between;
+  }
+
+  .header-link {
+    margin-left: 0;
   }
 
   .hero {
