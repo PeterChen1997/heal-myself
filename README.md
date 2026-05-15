@@ -28,6 +28,22 @@ npm test -- --run
 npm run build
 ```
 
+## Deployment
+
+The public Fly.io deployment is available at:
+
+```text
+https://heal-myself.fly.dev/
+```
+
+Deploy to Fly.io with:
+
+```bash
+flyctl deploy --remote-only
+```
+
+The Docker image builds the Vite app with root-relative assets for Fly.io. The GitHub Pages deployment still uses the default `/heal-myself/` base path.
+
 ## Scripts
 
 - `npm run dev` starts the local Vite dev server.
